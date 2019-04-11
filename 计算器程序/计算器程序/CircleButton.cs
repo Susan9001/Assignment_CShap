@@ -27,12 +27,12 @@ namespace 计算器程序
             pevent.Graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
             pevent.Graphics.SmoothingMode = SmoothingMode.AntiAlias; // 抗锯齿
             pevent.Graphics.CompositingQuality = CompositingQuality.HighQuality;
-            pevent.Graphics.FillEllipse(new SolidBrush(this.BackColor), 1/5, 1/5, this.Width * 3/5 , this.Width*3/5);
+            pevent.Graphics.FillEllipse(new SolidBrush(this.BackColor), 0, 0, this.Width * 4/5 , this.Width*4/5);
             // 对齐
             StringFormat formatHorizontal = new StringFormat(StringFormatFlags.DirectionRightToLeft);
             formatHorizontal.LineAlignment = StringAlignment.Center;
             formatHorizontal.Alignment = StringAlignment.Center;
-            pevent.Graphics.DrawString(this.Text, this.Font, new SolidBrush(Color.AliceBlue), new PointF(this.Width*3/10, this.Width*3/10), formatHorizontal);
+            pevent.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), new PointF(this.Width*3/10, this.Width*3/10), formatHorizontal);
         }
     }
 
