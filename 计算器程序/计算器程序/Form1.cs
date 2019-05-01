@@ -71,6 +71,7 @@ namespace 计算器程序
             this.btn_percent.TabIndex = 3;
             this.btn_percent.Text = "%";
             this.btn_percent.UseVisualStyleBackColor = false;
+            this.btn_percent.Click += new System.EventHandler(this.btnOptr_click);
             // 
             // btn_bef
             // 
@@ -95,6 +96,7 @@ namespace 计算器程序
             this.btn_ac.TabIndex = 1;
             this.btn_ac.Text = "AC";
             this.btn_ac.UseVisualStyleBackColor = false;
+            this.btn_ac.Click += new System.EventHandler(this.btn_ac_Click);
             // 
             // btn_div
             // 
@@ -124,7 +126,7 @@ namespace 计算器程序
             // 
             // btn_9
             // 
-            this.btn_9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_9.Location = new System.Drawing.Point(195, 201);
@@ -137,7 +139,7 @@ namespace 计算器程序
             // 
             // btn_8
             // 
-            this.btn_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_8.Location = new System.Drawing.Point(102, 201);
@@ -150,7 +152,7 @@ namespace 计算器程序
             // 
             // btn_7
             // 
-            this.btn_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_7.Location = new System.Drawing.Point(12, 201);
@@ -176,7 +178,7 @@ namespace 计算器程序
             // 
             // btn_6
             // 
-            this.btn_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_6.Location = new System.Drawing.Point(195, 277);
@@ -189,7 +191,7 @@ namespace 计算器程序
             // 
             // btn_5
             // 
-            this.btn_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_5.Location = new System.Drawing.Point(102, 277);
@@ -202,7 +204,7 @@ namespace 计算器程序
             // 
             // btn_4
             // 
-            this.btn_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_4.Location = new System.Drawing.Point(11, 277);
@@ -228,7 +230,7 @@ namespace 计算器程序
             // 
             // btn_3
             // 
-            this.btn_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_3.Location = new System.Drawing.Point(195, 355);
@@ -241,7 +243,7 @@ namespace 计算器程序
             // 
             // btn_2
             // 
-            this.btn_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_2.Location = new System.Drawing.Point(102, 355);
@@ -254,7 +256,7 @@ namespace 计算器程序
             // 
             // btn_1
             // 
-            this.btn_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_1.Location = new System.Drawing.Point(11, 355);
@@ -280,7 +282,7 @@ namespace 计算器程序
             // 
             // btn_dot
             // 
-            this.btn_dot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_dot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_dot.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_dot.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_dot.Location = new System.Drawing.Point(196, 438);
@@ -293,7 +295,7 @@ namespace 计算器程序
             // 
             // btn_0
             // 
-            this.btn_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btn_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.btn_0.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btn_0.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.btn_0.Location = new System.Drawing.Point(12, 434);
@@ -455,14 +457,37 @@ namespace 计算器程序
             return "ERROR"; // ERROR
         }
 
+        private string Operate(string a, string optr)
+        {
+            optr = optr.Trim();
+            try
+            {
+                double aa = Convert.ToDouble(a);
+                switch (optr)
+                {
+                    case "%": return (aa / 100).ToString();
+                    default: return "ERROR";
+                }
+            }
+            catch (Exception e)
+            {
+                return "ERROR";
+            }
+        }
+
         private void btnOptr_click(object sender, EventArgs e)
         {
             string optr = ((Button)sender).Text;
+            if (optr == "%")
+            {
+                textBox1.Text = Operate(textBox1.Text, optr);
+            }
             intoInputs(this.textBox1.Text); // 放入缓存
 
             string result = this.textBox1.Text;
             switch(optr)
             {
+                case "%": break;
                 case "÷": intoInputs("/"); break;
                 case "×": intoInputs("*"); break;
                 case "＋": intoInputs("+"); break;
@@ -513,6 +538,13 @@ namespace 计算器程序
             else
                 this.textBox1.Text += ((Button)sender).Text;
         }
+
+        private void btn_ac_Click(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            Array.Clear(inputs, 0, inputs.Length);
+        }
+
     }
 }
 
