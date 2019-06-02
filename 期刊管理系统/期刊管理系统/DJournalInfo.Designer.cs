@@ -37,11 +37,11 @@
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_yes = new System.Windows.Forms.Button();
             this.label_info = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.tbox_id = new System.Windows.Forms.TextBox();
+            this.tbox_publish_date = new System.Windows.Forms.TextBox();
+            this.tbox_name = new System.Windows.Forms.TextBox();
+            this.cmbox_cat = new System.Windows.Forms.ComboBox();
+            this.cmbox_type = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label_id
@@ -127,42 +127,42 @@
             this.label_info.Text = "期刊详情";
             this.label_info.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // textBox1
+            // tbox_id
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(144, 28);
-            this.textBox1.TabIndex = 10;
+            this.tbox_id.Location = new System.Drawing.Point(137, 100);
+            this.tbox_id.Name = "tbox_id";
+            this.tbox_id.Size = new System.Drawing.Size(144, 28);
+            this.tbox_id.TabIndex = 10;
             // 
-            // textBox2
+            // tbox_publish_date
             // 
-            this.textBox2.Location = new System.Drawing.Point(137, 199);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(275, 28);
-            this.textBox2.TabIndex = 11;
+            this.tbox_publish_date.Location = new System.Drawing.Point(137, 199);
+            this.tbox_publish_date.Name = "tbox_publish_date";
+            this.tbox_publish_date.Size = new System.Drawing.Size(275, 28);
+            this.tbox_publish_date.TabIndex = 11;
             // 
-            // textBox3
+            // tbox_name
             // 
-            this.textBox3.Location = new System.Drawing.Point(425, 97);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(142, 28);
-            this.textBox3.TabIndex = 12;
+            this.tbox_name.Location = new System.Drawing.Point(425, 97);
+            this.tbox_name.Name = "tbox_name";
+            this.tbox_name.Size = new System.Drawing.Size(142, 28);
+            this.tbox_name.TabIndex = 12;
             // 
-            // comboBox1
+            // cmbox_cat
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(137, 148);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(144, 26);
-            this.comboBox1.TabIndex = 13;
+            this.cmbox_cat.FormattingEnabled = true;
+            this.cmbox_cat.Location = new System.Drawing.Point(137, 148);
+            this.cmbox_cat.Name = "cmbox_cat";
+            this.cmbox_cat.Size = new System.Drawing.Size(144, 26);
+            this.cmbox_cat.TabIndex = 13;
             // 
-            // comboBox2
+            // cmbox_type
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(425, 145);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(142, 26);
-            this.comboBox2.TabIndex = 14;
+            this.cmbox_type.FormattingEnabled = true;
+            this.cmbox_type.Location = new System.Drawing.Point(425, 145);
+            this.cmbox_type.Name = "cmbox_type";
+            this.cmbox_type.Size = new System.Drawing.Size(142, 26);
+            this.cmbox_type.TabIndex = 14;
             // 
             // DJournalInfo
             // 
@@ -171,11 +171,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_cancel;
             this.ClientSize = new System.Drawing.Size(614, 341);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cmbox_type);
+            this.Controls.Add(this.cmbox_cat);
+            this.Controls.Add(this.tbox_name);
+            this.Controls.Add(this.tbox_publish_date);
+            this.Controls.Add(this.tbox_id);
             this.Controls.Add(this.label_info);
             this.Controls.Add(this.btn_yes);
             this.Controls.Add(this.btn_cancel);
@@ -204,10 +204,10 @@
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_yes;
         private System.Windows.Forms.Label label_info;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        protected System.Windows.Forms.TextBox tbox_id;
+        protected System.Windows.Forms.TextBox tbox_publish_date;
+        protected System.Windows.Forms.TextBox tbox_name;
+        protected System.Windows.Forms.ComboBox cmbox_cat;
+        protected System.Windows.Forms.ComboBox cmbox_type;
     }
 }
