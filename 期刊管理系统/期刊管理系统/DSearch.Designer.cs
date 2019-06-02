@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DSearch));
             this.btn_yes = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.label_name = new System.Windows.Forms.Label();
@@ -40,21 +41,25 @@
             // 
             // btn_yes
             // 
+            this.btn_yes.Image = ((System.Drawing.Image)(resources.GetObject("btn_yes.Image")));
+            this.btn_yes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_yes.Location = new System.Drawing.Point(275, 245);
             this.btn_yes.Name = "btn_yes";
             this.btn_yes.Size = new System.Drawing.Size(129, 37);
             this.btn_yes.TabIndex = 10;
-            this.btn_yes.Text = "确认";
+            this.btn_yes.Text = "   确认";
             this.btn_yes.UseVisualStyleBackColor = true;
             // 
             // btn_cancel
             // 
             this.btn_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btn_cancel.Image = ((System.Drawing.Image)(resources.GetObject("btn_cancel.Image")));
+            this.btn_cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_cancel.Location = new System.Drawing.Point(443, 245);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(122, 37);
             this.btn_cancel.TabIndex = 9;
-            this.btn_cancel.Text = "取消";
+            this.btn_cancel.Text = "   取消";
             this.btn_cancel.UseVisualStyleBackColor = true;
             // 
             // label_name
