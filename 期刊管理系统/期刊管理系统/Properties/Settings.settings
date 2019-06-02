@@ -1,0 +1,14 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="期刊管理系统.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="JournalManagementConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Dsn=SQL JournalManagement;description=大作业要做好;trusted_connection=Yes;app=Microsoft® Visual Studio®;wsid=LAPTOP-1KUAS13K;database=JournalManagement;querylog_on=Yes;querylogfile=D:\Qt\Qt Projs\test00_期刊信息管理系统\DB_LOGS\QUERY.LOG;statslog_on=Yes;statslogfile=D:\Qt\Qt Projs\test00_期刊信息管理系统\DB_LOGS\STATS.LOG&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.Odbc&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Dsn=SQL JournalManagement;description=大作业要做好;trusted_connection=Yes;app=Microsoft® Visual Studio®;wsid=LAPTOP-1KUAS13K;database=JournalManagement;querylog_on=Yes;querylogfile=D:\Qt\Qt Projs\test00_期刊信息管理系统\DB_LOGS\QUERY.LOG;statslog_on=Yes;statslogfile=D:\Qt\Qt Projs\test00_期刊信息管理系统\DB_LOGS\STATS.LOG</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
