@@ -30,9 +30,7 @@ namespace 期刊管理系统
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“journalManagementDataSet.V_Journal”中。您可以根据需要移动或删除它。
-            this.v_JournalTableAdapter.Fill(this.journalManagementDataSet.V_Journal);
-            
+            updateGridView();
         }
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -43,7 +41,8 @@ namespace 期刊管理系统
         private void btn_info_Click(object sender, EventArgs e)
         {
             int currIndex = dataGridView1.CurrentRow.Index; // 当前行
-            int journalId = Convert.ToInt32(dataGridView1.Rows[currIndex].Cells[0].Value);
+            // 第0列是checkbox
+            int journalId = Convert.ToInt32(dataGridView1.Rows[currIndex].Cells[1].Value);
 
             using (OdbcConnection conn = new OdbcConnection(connStr))
             {
@@ -54,8 +53,7 @@ namespace 期刊管理系统
                     "AND J.editor_id = E.editor_id\n"+
                     "AND J.typee_id = T.typee_id\n"+
                     "AND T.catalog_id = C.catalog_id;";
-                OdbcCommand cmd = new OdbcCommand(sqlStr, conn);
-                OdbcDataReader reader = cmd.ExecuteReader(); // 执行查询语句
+                OdbcDataReader reader = new OdbcCommand(sqlStr, conn).ExecuteReader(); // 执行查询语句
                 Hashtable infoTable = new Hashtable(); // 准备给对话框传参
                 if (reader.Read())
                 {
@@ -68,10 +66,43 @@ namespace 期刊管理系统
                     DJournalInfo dJournal = new DJournalInfo(infoTable, connStr);
                     if (dJournal.ShowDialog() == DialogResult.OK)
                     {
-                        // TODO: 更新数据，并刷新页面
+                        infoTable = dJournal.getNewInfo();
+                        // 更新数据，并刷新页面
+                        // 1. 查询typee
+                        sqlStr = "SELECT typee_id\n" +
+                            "FROM Typee\n" +
+                            "WHERE typee_name = \'" + infoTable["typee_name"] + "\';";
+                        reader = new OdbcCommand(sqlStr, conn).ExecuteReader(); // 执行查询语句
+                        reader.Read();
+                        string typeeid = Convert.ToString(reader[0]);
+                        // 2. 更新
+                        sqlStr = "UPDATE Journal\n" +
+                            "SET journal_name = \'" + infoTable["name"] + "\',\n" +
+                            "new_publish_date = \'" + infoTable["publish_date"] + "\',\n" +
+                            "typee_id = \'" + typeeid + "\'\n" +
+                            "WHERE journal_id = " + journalId + ";" ;
+                        noQuery(sqlStr);
+                        // 刷新gridview
+                        updateGridView();
                     }
                 }
             }
         }
+
+        private void updateGridView()
+        {
+            // TODO: 这行代码将数据加载到表“journalManagementDataSet.V_Journal”中。您可以根据需要移动或删除它。
+            this.v_JournalTableAdapter.Fill(this.journalManagementDataSet.V_Journal);
+        }
+
+        public void noQuery(string sql)
+        {
+            OdbcConnection conn = new OdbcConnection(connStr);
+            OdbcCommand cmd = new OdbcCommand(sql, conn);
+            conn.Open();
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
     }
 }
