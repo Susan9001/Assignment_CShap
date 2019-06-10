@@ -31,6 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.col_chbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.journalidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.journalnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publishernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.newpublishdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vJournalBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.journalManagementDataSet = new 期刊管理系统.JournalManagementDataSet();
             this.v_JournalTableAdapter = new 期刊管理系统.JournalManagementDataSetTableAdapters.V_JournalTableAdapter();
@@ -39,12 +45,6 @@
             this.btn_add = new System.Windows.Forms.ToolStripButton();
             this.btn_del = new System.Windows.Forms.ToolStripButton();
             this.btn_search = new System.Windows.Forms.ToolStripButton();
-            this.col_chbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.journalidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.journalnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeenameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publishernameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.newpublishdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vJournalBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.journalManagementDataSet)).BeginInit();
@@ -71,6 +71,52 @@
             this.dataGridView1.Size = new System.Drawing.Size(948, 630);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // col_chbox
+            // 
+            this.col_chbox.HeaderText = "选择";
+            this.col_chbox.Name = "col_chbox";
+            this.col_chbox.Width = 45;
+            // 
+            // journalidDataGridViewTextBoxColumn
+            // 
+            this.journalidDataGridViewTextBoxColumn.DataPropertyName = "journal_id";
+            this.journalidDataGridViewTextBoxColumn.HeaderText = "期刊号";
+            this.journalidDataGridViewTextBoxColumn.Name = "journalidDataGridViewTextBoxColumn";
+            this.journalidDataGridViewTextBoxColumn.ToolTipText = "期刊号";
+            this.journalidDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // journalnameDataGridViewTextBoxColumn
+            // 
+            this.journalnameDataGridViewTextBoxColumn.DataPropertyName = "journal_name";
+            this.journalnameDataGridViewTextBoxColumn.HeaderText = "期刊名";
+            this.journalnameDataGridViewTextBoxColumn.Name = "journalnameDataGridViewTextBoxColumn";
+            this.journalnameDataGridViewTextBoxColumn.ToolTipText = "期刊名";
+            this.journalnameDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // typeenameDataGridViewTextBoxColumn
+            // 
+            this.typeenameDataGridViewTextBoxColumn.DataPropertyName = "typee_name";
+            this.typeenameDataGridViewTextBoxColumn.HeaderText = "期刊类型名";
+            this.typeenameDataGridViewTextBoxColumn.Name = "typeenameDataGridViewTextBoxColumn";
+            this.typeenameDataGridViewTextBoxColumn.ToolTipText = "期刊类型名";
+            this.typeenameDataGridViewTextBoxColumn.Width = 107;
+            // 
+            // publishernameDataGridViewTextBoxColumn
+            // 
+            this.publishernameDataGridViewTextBoxColumn.DataPropertyName = "publisher_name";
+            this.publishernameDataGridViewTextBoxColumn.HeaderText = "出版社名";
+            this.publishernameDataGridViewTextBoxColumn.Name = "publishernameDataGridViewTextBoxColumn";
+            this.publishernameDataGridViewTextBoxColumn.ToolTipText = "出版社名";
+            this.publishernameDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // newpublishdateDataGridViewTextBoxColumn
+            // 
+            this.newpublishdateDataGridViewTextBoxColumn.DataPropertyName = "new_publish_date";
+            this.newpublishdateDataGridViewTextBoxColumn.HeaderText = "最新出版日期";
+            this.newpublishdateDataGridViewTextBoxColumn.Name = "newpublishdateDataGridViewTextBoxColumn";
+            this.newpublishdateDataGridViewTextBoxColumn.ToolTipText = "最新出版日期";
+            this.newpublishdateDataGridViewTextBoxColumn.Width = 107;
             // 
             // vJournalBindingSource
             // 
@@ -117,6 +163,7 @@
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(110, 28);
             this.btn_add.Text = "增加期刊";
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_del
             // 
@@ -125,6 +172,7 @@
             this.btn_del.Name = "btn_del";
             this.btn_del.Size = new System.Drawing.Size(110, 28);
             this.btn_del.Text = "删除期刊";
+            this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
             // 
             // btn_search
             // 
@@ -133,52 +181,7 @@
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(110, 28);
             this.btn_search.Text = "搜索期刊";
-            // 
-            // col_chbox
-            // 
-            this.col_chbox.HeaderText = "选择";
-            this.col_chbox.Name = "col_chbox";
-            this.col_chbox.Width = 50;
-            // 
-            // journalidDataGridViewTextBoxColumn
-            // 
-            this.journalidDataGridViewTextBoxColumn.DataPropertyName = "journal_id";
-            this.journalidDataGridViewTextBoxColumn.HeaderText = "期刊号";
-            this.journalidDataGridViewTextBoxColumn.Name = "journalidDataGridViewTextBoxColumn";
-            this.journalidDataGridViewTextBoxColumn.ToolTipText = "期刊号";
-            this.journalidDataGridViewTextBoxColumn.Width = 98;
-            // 
-            // journalnameDataGridViewTextBoxColumn
-            // 
-            this.journalnameDataGridViewTextBoxColumn.DataPropertyName = "journal_name";
-            this.journalnameDataGridViewTextBoxColumn.HeaderText = "期刊名";
-            this.journalnameDataGridViewTextBoxColumn.Name = "journalnameDataGridViewTextBoxColumn";
-            this.journalnameDataGridViewTextBoxColumn.ToolTipText = "期刊名";
-            this.journalnameDataGridViewTextBoxColumn.Width = 98;
-            // 
-            // typeenameDataGridViewTextBoxColumn
-            // 
-            this.typeenameDataGridViewTextBoxColumn.DataPropertyName = "typee_name";
-            this.typeenameDataGridViewTextBoxColumn.HeaderText = "期刊类型名";
-            this.typeenameDataGridViewTextBoxColumn.Name = "typeenameDataGridViewTextBoxColumn";
-            this.typeenameDataGridViewTextBoxColumn.ToolTipText = "期刊类型名";
-            this.typeenameDataGridViewTextBoxColumn.Width = 134;
-            // 
-            // publishernameDataGridViewTextBoxColumn
-            // 
-            this.publishernameDataGridViewTextBoxColumn.DataPropertyName = "publisher_name";
-            this.publishernameDataGridViewTextBoxColumn.HeaderText = "出版社名";
-            this.publishernameDataGridViewTextBoxColumn.Name = "publishernameDataGridViewTextBoxColumn";
-            this.publishernameDataGridViewTextBoxColumn.ToolTipText = "出版社名";
-            this.publishernameDataGridViewTextBoxColumn.Width = 116;
-            // 
-            // newpublishdateDataGridViewTextBoxColumn
-            // 
-            this.newpublishdateDataGridViewTextBoxColumn.DataPropertyName = "new_publish_date";
-            this.newpublishdateDataGridViewTextBoxColumn.HeaderText = "最新出版日期";
-            this.newpublishdateDataGridViewTextBoxColumn.Name = "newpublishdateDataGridViewTextBoxColumn";
-            this.newpublishdateDataGridViewTextBoxColumn.ToolTipText = "最新出版日期";
-            this.newpublishdateDataGridViewTextBoxColumn.Width = 107;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
             // 
             // Form1
             // 

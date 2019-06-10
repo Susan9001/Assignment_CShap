@@ -38,6 +38,7 @@ namespace 期刊管理系统
 
         }
 
+        // 改
         private void btn_info_Click(object sender, EventArgs e)
         {
             int currIndex = dataGridView1.CurrentRow.Index; // 当前行
@@ -82,7 +83,6 @@ namespace 期刊管理系统
                             "typee_id = \'" + typeeid + "\'\n" +
                             "WHERE journal_id = " + journalId + ";" ;
                         noQuery(sqlStr);
-                        // 刷新gridview
                         updateGridView();
                     }
                 }
@@ -104,5 +104,75 @@ namespace 期刊管理系统
             conn.Close();
         }
 
+        // 增
+        private void btn_add_Click(object sender, EventArgs e)
+        {
+            int currIndex = dataGridView1.CurrentRow.Index; // 当前行
+            int journalId = Convert.ToInt32(dataGridView1.Rows[currIndex].Cells[1].Value);
+
+            Hashtable infoTable = new Hashtable();
+            OdbcDataReader reader;
+            using (OdbcConnection conn = new OdbcConnection(connStr))
+            {
+                conn.Open();
+                string sqlStr;
+                // 先给一个journal_id以防重复
+                sqlStr = "SELECT MAX(journal_id)\n" +
+                    "FROM Journal\n";
+                reader = new OdbcCommand(sqlStr, conn).ExecuteReader(); 
+                reader.Read();
+                infoTable["id"] = Convert.ToInt32(reader[0]) + 1;
+
+                DJournalInfo dJournal = new DJournalInfo(infoTable, connStr);
+                if (dJournal.ShowDialog() == DialogResult.OK)
+                {
+                    infoTable = dJournal.getNewInfo();
+                    // 更新数据，并刷新页面
+                    // 1. 查询typee
+                    sqlStr = "SELECT typee_id\n" +
+                        "FROM Typee\n" +
+                        "WHERE typee_name = \'" + infoTable["typee_name"] + "\';";
+                    reader = new OdbcCommand(sqlStr, conn).ExecuteReader(); // 执行查询语句
+                    reader.Read();
+                    string typeeid = Convert.ToString(reader[0]);
+                    // 2. 揷数据
+                    sqlStr = "INSERT INTO Journal (journal_id, journal_name, new_publish_date, editor_id, typee_id)\n" +
+                        string.Format("VALUES ('{0}', '{1}', '{2}', {3}, '{4}');",
+                        infoTable["id"], infoTable["name"], infoTable["publish_date"], 3, typeeid);
+                    noQuery(sqlStr);
+                    updateGridView();
+                    }
+            }
+        }
+
+        private void btn_del_Click(object sender, EventArgs e)
+        {
+            int currIndex = dataGridView1.CurrentRow.Index; // 当前行
+
+            Hashtable infoTable = new Hashtable();
+            using (OdbcConnection conn = new OdbcConnection(connStr))
+            {
+                conn.Open();
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    DataGridViewCheckBoxCell cboxCell = (DataGridViewCheckBoxCell)
+                        this.dataGridView1.Rows[i].Cells["col_chbox"];
+                    if (Convert.ToBoolean(cboxCell.Value) || i == currIndex)
+                    {
+                        int journalId = Convert.ToInt32(dataGridView1.Rows[i].
+                            Cells[1].Value);
+                        string sqlStr = string.Format("DELETE  FROM Journal\n" +
+                            "WHERE journal_id = {0};", journalId);
+                        noQuery(sqlStr);
+                    }
+                }
+            }
+            updateGridView();
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,12 +16,14 @@ namespace 期刊管理系统
     public partial class DJournalInfo : Form
     {
         private Hashtable infoTable;
+        private string connStr;
 
         public DJournalInfo(Hashtable infoTable, string connStr)
         {
             InitializeComponent();
 
             // combobox--catalogg
+            this.connStr = connStr;
             ArrayList arrCat = new ArrayList();
             string catStr = "SELECT catalog_name FROM Catalogg;";
             OdbcDataAdapter da = new OdbcDataAdapter(catStr, connStr);
@@ -30,17 +32,14 @@ namespace 期刊管理系统
             DataTable dt = ds.Tables[0];
             foreach (DataRow dr in dt.Rows)
                 arrCat.Add(dr[0].ToString().Trim());
-            cmbox_cat.DataSource = arrCat; 
+            cmbox_cat.DataSource = arrCat;
+            if (infoTable.Contains("catalog_name"))
+                this.cmbox_cat.Text = Convert.ToString(infoTable["catalog_name"]);
+
             // combobox--typee
-            ArrayList arrTypee = new ArrayList();
-            string typeeStr = "SELECT typee_name FROM Typee;";
-            OdbcDataAdapter da1 = new OdbcDataAdapter(typeeStr, connStr);
-            DataSet ds1 = new DataSet();
-            da1.Fill(ds1);
-            DataTable dt1 = ds1.Tables[0];
-            foreach (DataRow dr in dt1.Rows)
-                arrTypee.Add(dr[0].ToString().Trim());
-            cmbox_type.DataSource = arrTypee;
+            setTypee();
+            if (infoTable.Contains("typee_name"))
+                this.cmbox_type.Text = Convert.ToString(infoTable["typee_name"]);
 
             // 把期刊信息填入各框中
             this.infoTable = infoTable;
@@ -52,8 +51,6 @@ namespace 期刊管理系统
             this.tbox_id.Text = Convert.ToString(infoTable["id"]);
             this.tbox_name.Text = Convert.ToString(infoTable["name"]);
             this.tbox_publish_date.Text = Convert.ToString(infoTable["publish_date"]);
-            this.cmbox_cat.Text = Convert.ToString(infoTable["catalog_name"]);
-            this.cmbox_type.Text = Convert.ToString(infoTable["typee_name"]);
         }
 
         public Hashtable getNewInfo()
@@ -89,6 +86,31 @@ namespace 期刊管理系统
         private void label1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        // 联动
+        private void cmbox_cat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setTypee();
+        }
+
+        private void setTypee()
+        {
+            ArrayList arrTypee = new ArrayList();
+            string catalog_name = cmbox_cat.Text.Trim();
+            string typeeStr = "SELECT typee_name\n"+
+                "FROM Typee\n"+
+                "WHERE catalog_id IN (\n"+
+                "SELECT catalog_id\n"+
+                "FROM Catalogg\n"+
+                "WHERE catalog_name = \'" + catalog_name + "\');";
+            OdbcDataAdapter da = new OdbcDataAdapter(typeeStr, connStr);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            foreach (DataRow dr in dt.Rows)
+                arrTypee.Add(dr[0].ToString().Trim());
+            cmbox_type.DataSource = arrTypee; 
         }
     }
 }

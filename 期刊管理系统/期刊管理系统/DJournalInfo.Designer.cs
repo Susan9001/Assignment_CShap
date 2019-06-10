@@ -131,6 +131,7 @@
             // 
             this.tbox_id.Location = new System.Drawing.Point(137, 100);
             this.tbox_id.Name = "tbox_id";
+            this.tbox_id.ReadOnly = true;
             this.tbox_id.Size = new System.Drawing.Size(144, 28);
             this.tbox_id.TabIndex = 10;
             // 
@@ -150,14 +151,17 @@
             // 
             // cmbox_cat
             // 
+            this.cmbox_cat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbox_cat.FormattingEnabled = true;
             this.cmbox_cat.Location = new System.Drawing.Point(137, 148);
             this.cmbox_cat.Name = "cmbox_cat";
             this.cmbox_cat.Size = new System.Drawing.Size(144, 26);
             this.cmbox_cat.TabIndex = 13;
+            this.cmbox_cat.SelectedIndexChanged += new System.EventHandler(this.cmbox_cat_SelectedIndexChanged);
             // 
             // cmbox_type
             // 
+            this.cmbox_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbox_type.FormattingEnabled = true;
             this.cmbox_type.Location = new System.Drawing.Point(425, 145);
             this.cmbox_type.Name = "cmbox_type";

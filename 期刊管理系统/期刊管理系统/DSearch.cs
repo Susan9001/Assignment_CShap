@@ -26,5 +26,20 @@ namespace 期刊管理系统
         {
 
         }
+
+        public string getJournalNames()
+        {
+            return this.tbox_name.Text;
+        }
+
+        public string getTypees()
+        {
+            return this.tbox_name.Text;
+        }
+
+        public string getPublishers()
+        {
+            return this.tbox_publisher.Text;
+        }
     }
 }

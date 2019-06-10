@@ -1,0 +1,5 @@
+UPDATE Journal
+SET journal_name = '中国666',
+new_publish_date = '1990/12/1 0:00:00',
+typee_id = 'I0,I20,I210',
+WHERE journal_id = 1;
