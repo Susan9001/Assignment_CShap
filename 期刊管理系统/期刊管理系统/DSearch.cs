@@ -27,19 +27,29 @@ namespace 期刊管理系统
 
         }
 
-        public string getJournalNames()
+        public string[] getJournalNames()
         {
-            return this.tbox_name.Text;
+            return this.tbox_name.Text.Split();
         }
 
-        public string getTypees()
+        public string[] getTypees()
         {
-            return this.tbox_name.Text;
+            return this.tbox_type.Text.Split();
         }
 
-        public string getPublishers()
+        public string[] getPublishers()
         {
-            return this.tbox_publisher.Text;
+            return this.tbox_publisher.Text.Split();
+        }
+
+        private void btn_yes_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
         }
     }
 }

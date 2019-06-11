@@ -44,6 +44,7 @@
             this.btn_info = new System.Windows.Forms.ToolStripButton();
             this.btn_add = new System.Windows.Forms.ToolStripButton();
             this.btn_del = new System.Windows.Forms.ToolStripButton();
+            this.btn_refresh = new System.Windows.Forms.ToolStripButton();
             this.btn_search = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vJournalBindingSource)).BeginInit();
@@ -139,7 +140,8 @@
             this.btn_info,
             this.btn_add,
             this.btn_del,
-            this.btn_search});
+            this.btn_search,
+            this.btn_refresh});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(948, 31);
@@ -173,6 +175,15 @@
             this.btn_del.Size = new System.Drawing.Size(110, 28);
             this.btn_del.Text = "删除期刊";
             this.btn_del.Click += new System.EventHandler(this.btn_del_Click);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Image = ((System.Drawing.Image)(resources.GetObject("btn_refresh.Image")));
+            this.btn_refresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(110, 28);
+            this.btn_refresh.Text = "重置页面";
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // btn_search
             // 
@@ -213,13 +224,14 @@
         private System.Windows.Forms.ToolStripButton btn_info;
         private System.Windows.Forms.ToolStripButton btn_add;
         private System.Windows.Forms.ToolStripButton btn_del;
-        private System.Windows.Forms.ToolStripButton btn_search;
+        private System.Windows.Forms.ToolStripButton btn_refresh;
         private System.Windows.Forms.DataGridViewCheckBoxColumn col_chbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn journalidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn journalnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeenameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn publishernameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn newpublishdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton btn_search;
     }
 }
 

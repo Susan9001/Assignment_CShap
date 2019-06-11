@@ -49,6 +49,7 @@
             this.btn_yes.TabIndex = 10;
             this.btn_yes.Text = "   确认";
             this.btn_yes.UseVisualStyleBackColor = true;
+            this.btn_yes.Click += new System.EventHandler(this.btn_yes_Click);
             // 
             // btn_cancel
             // 
@@ -61,6 +62,7 @@
             this.btn_cancel.TabIndex = 9;
             this.btn_cancel.Text = "   取消";
             this.btn_cancel.UseVisualStyleBackColor = true;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // label_name
             // 

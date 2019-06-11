@@ -92,6 +92,7 @@ namespace 期刊管理系统
         private void updateGridView()
         {
             // TODO: 这行代码将数据加载到表“journalManagementDataSet.V_Journal”中。您可以根据需要移动或删除它。
+            this.dataGridView1.DataSource = this.vJournalBindingSource;
             this.v_JournalTableAdapter.Fill(this.journalManagementDataSet.V_Journal);
         }
 
@@ -145,6 +146,7 @@ namespace 期刊管理系统
             }
         }
 
+        // 删
         private void btn_del_Click(object sender, EventArgs e)
         {
             int currIndex = dataGridView1.CurrentRow.Index; // 当前行
@@ -170,9 +172,68 @@ namespace 期刊管理系统
             updateGridView();
         }
 
+        // 查
         private void btn_search_Click(object sender, EventArgs e)
         {
+            DSearch dSearch = new DSearch();
+            if (dSearch.ShowDialog() == DialogResult.OK)
+            {
+                string[] journalNameList = dSearch.getJournalNames();
+                string[] typeesList = dSearch.getTypees();
+                string[] publisherList = dSearch.getPublishers();
+                string sqlStr = "SELECT *\n" +
+                    "FROM V_Journal\n" +
+                    "WHERE journal_id != -1\n";
 
+                // 先typee
+                if (typeesList.Length > 0 && typeesList[0].Length > 0)
+                {
+                    string typeeStr = "AND (";
+                    typeeStr += (string.Format("typee_name LIKE '%{0}%'\n", typeesList[0]));
+                    for (int i = 1; i < typeesList.Length; i++)
+                        typeeStr += (string.Format("OR typee_name LIKE '%{0}%'\n", typeesList[i]));
+                    typeeStr += ")";
+                    sqlStr += typeeStr;
+                }
+
+                // 中journal
+                if (journalNameList.Length > 0 && journalNameList[0].Length > 0)
+                {
+                    string journalStr = "AND (";
+                    journalStr += (string.Format("journal_name LIKE '%{0}%'\n", journalNameList[0]));
+                    for (int i = 1; i < journalNameList.Length; i++)
+                        journalStr += (string.Format("OR journal_name LIKE '%{0}%'\n", journalNameList[i]));
+                    journalStr += ")";
+                    sqlStr += journalStr;
+                }
+
+                // 后publisher
+                if (publisherList.Length > 0&& publisherList[0].Length > 0)
+                {
+                    string publisherStr = "AND (";
+                    publisherStr += (string.Format("publisher_name LIKE '%{0}%'\n", publisherList[0]));
+                    for (int i = 1; i < publisherList.Length; i++)
+                        publisherStr += (string.Format("OR publisher_name LIKE '%{0}%'\n", publisherList[i]));
+                    publisherStr += ")";
+                    sqlStr += publisherStr;
+                }
+
+                if (typeesList.Length <= 0 && journalNameList.Length <= 0
+                    && publisherList.Length <= 0)
+                    sqlStr += "AND journal_id = -1";
+                sqlStr += ";";
+
+                OdbcDataAdapter dataAdapter = new OdbcDataAdapter(sqlStr, connStr);
+                DataSet dataSet = new DataSet();
+                dataAdapter.Fill(dataSet);
+                DataTable dataTable = dataSet.Tables[0];
+                dataGridView1.DataSource = dataTable;
+            }
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            updateGridView();
         }
     }
 }
